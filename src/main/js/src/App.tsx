@@ -1,7 +1,7 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import {BrowserRouter, Route, Routes, Navigate} from 'react-router-dom';
+import {BrowserRouter, Redirect, Route, Switch} from 'react-router-dom';
 import HomePage from './containers/HomePage';
 import CheckoutPage from './containers/CheckoutPage';
 import AllProductsPage from './containers/AllProductsPage';
@@ -14,10 +14,11 @@ import createSagaMiddleware from 'redux-saga';
 import { watchProductDetailsSaga } from './store/sagas/productDetailsSaga';
 import ProductDetailsAction from './store/actions/productDetailsAction';
 import startRootSaga from './store/sagas/rootSaga';
+import { composeWithDevTools } from '@redux-devtools/extension';
 
 const sagaMiddleware = createSagaMiddleware();
 
-const store = createStore(rootReducer, applyMiddleware(sagaMiddleware));
+const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(sagaMiddleware)));
 sagaMiddleware.run(startRootSaga);
 
 store.dispatch({
@@ -32,12 +33,12 @@ function App() {
       <Provider store={store}>
       <BrowserRouter>
         <HeaderNavigation/>
-          <Routes>
-            <Route path={ROUTE.CHECKOUT} element={<CheckoutPage/>}/>
-            <Route path={ROUTE.ALL_PRODUCTS} element={<AllProductsPage/>}/>
-            <Route path={ROUTE.HOME} element={<HomePage/>}/>
-            <Route path='*' element={<Navigate to={ROUTE.HOME} replace />}/>
-        </Routes>
+          <Switch>
+            <Route exact component={CheckoutPage} path = {ROUTE.CHECKOUT}/>
+            <Route exact component = {AllProductsPage}path={ROUTE.ALL_PRODUCTS}/>
+            <Route exact component={HomePage} path={ROUTE.HOME}/>
+            <Redirect to = "/"/>
+        </Switch>
       </BrowserRouter>
       </Provider>
    </div>
