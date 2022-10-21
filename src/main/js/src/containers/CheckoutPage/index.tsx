@@ -1,12 +1,12 @@
-import React from "react";
+import React from 'react';
 
 class CheckoutPage extends React.Component {
     render() {
-        return(
+        return (
             <div>
-                <h1>Checkout Page</h1>
+                <h1> Checkout Page </h1>
             </div>
-        );
+        )
     }
 }
 

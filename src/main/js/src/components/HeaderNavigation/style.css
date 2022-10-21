@@ -1,5 +1,5 @@
 .header-nav-container {
-    display:flex;
+    display: flex;
     justify-content: space-between;
     height: 70px;
     padding-top: 10px;
@@ -18,11 +18,11 @@
     color: palevioletred;
     font-style: italic;
     font-weight: bold;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: fantasy;
 }
 
 .nav-items-left {
-    display:flex;
+    display: flex;
     align-items: center;
 }
 
@@ -39,7 +39,7 @@
     align-items: center;
 }
 
-.nav-items-right .fa-shopping-cart {
-    color : green;
+.nav-items-right .fa-shopping-cart{
+    color: green;
     font-size: 35px;
 }

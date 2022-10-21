@@ -1,5 +1,5 @@
 .shop-quality-container {
-    display:flex;
+    display: flex;
     align-items: center;
     justify-content: space-evenly;
     margin-top: 200px;
@@ -7,7 +7,7 @@
 }
 
 .shop-quality-container .quality-item-container {
-    display:flex;
+    display: flex;
     flex-direction: column;
     align-items: center;
     width: 400px;
@@ -20,7 +20,7 @@
 
 .shop-quality-container .img-container {
     min-height: 250px;
-    width : 400px;
+    width: 400px;
     background-repeat: no-repeat;
     background-size: cover;
     border: 1px solid black;
